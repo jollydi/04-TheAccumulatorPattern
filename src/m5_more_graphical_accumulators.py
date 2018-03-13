@@ -364,6 +364,12 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     ####################################################################
     # ------------------------------------------------------------------
 
+    p1 = rectangle1.get_center()
+    p2 = rectangle2.get_center()
+    if p1.x > rectangle1.corner_1.x:
+        
+    dx =
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
