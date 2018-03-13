@@ -364,11 +364,35 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     ####################################################################
     # ------------------------------------------------------------------
 
+    rectangle1.attach_to(window)
+    rectangle2.attach_to(window)
+
     p1 = rectangle1.get_center()
     p2 = rectangle2.get_center()
-    if p1.x > rectangle1.corner_1.x:
-        
-    dx =
+
+    if rectangle1.corner_2.x > rectangle1.corner_1.x:
+        dx = p1.x - rectangle1.corner_1.x
+    else:
+        dx = p1.x - rectangle1.corner_2.x
+
+    if rectangle1.corner_2.y > rectangle1.corner_1.y:
+        dy = rectangle1.corner_2.y - p1.y
+    else:
+        dy = rectangle1.corner_1.y - p1.y
+
+    for k in range(n):
+        line = rg.Line(p1, p2)
+        line.thickness = 5
+        if k % 2 == 0:
+            line.color = rectangle1.outline_color
+        else:
+            line.color = rectangle2.outline_color
+        line.attach_to(window)
+        window.render()
+        p1.x = p1.x - dx
+        p1.y = p1.y + dy
+        p2.x = p2.x - dx
+        p2.y = p2.y + dy
 
 
 # ----------------------------------------------------------------------
