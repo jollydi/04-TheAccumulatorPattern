@@ -388,7 +388,7 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
         else:
             line.color = rectangle2.outline_color
         line.attach_to(window)
-        window.render()
+        window.render(0.1)
         p1.x = p1.x - dx
         p1.y = p1.y + dy
         p2.x = p2.x - dx
